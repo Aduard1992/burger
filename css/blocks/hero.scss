@@ -55,7 +55,11 @@
   @include lifehack;
   text-transform: lowercase;
   line-height: 1em;
+  @include phones-small{
+    font-size: rem(40px);
+ }
 }
+
 
 .hero__img {
   display: inline-block;

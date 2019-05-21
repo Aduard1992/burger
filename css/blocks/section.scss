@@ -25,4 +25,7 @@
 	&.section__title_white {
 		color: white;
 	}
+	@include phones-small{
+		font-size: rem(50px);
+	}
 }

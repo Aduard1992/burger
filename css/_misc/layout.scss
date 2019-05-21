@@ -1,9 +1,9 @@
 html {
   @include laptop {
-    font-size: rem(15px);
+    font-size: 15px;
   }
   @include phones {
-    font-size: rem(13px);
+    font-size: 13px;
   }
 }
 

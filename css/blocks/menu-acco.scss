@@ -17,6 +17,21 @@
 	}
 }
 
+.menu-acco__item_active .menu-acco__trigger-text{
+	color: #f9b43b;
+}
+
+.menu-acco__item_active .menu-acco__content{
+	width:  31.25rem;
+
+	@include phones {
+		width: 16.25rem;
+	}
+	@include phones-small{
+		width: 14.25rem;
+	}
+
+}
 .menu-acco__trigger {
 	width: rem(80px);
 	display: block;
@@ -64,7 +79,7 @@
 	padding: rem(60px) rem(30px);
 	width: 100%;
   line-height: 1.8;
-  display: none;
+  // display: none;
 
   @include phones {
     padding: rem(25px) rem(15px);
