@@ -52,6 +52,7 @@
 		border-bottom: rem(0px) solid transparent;
 		transform: rotate(0deg);
 		transition: .3s;
+		
 	}
 
 	&:after {
@@ -126,7 +127,7 @@
 }
 
 .team-acco__item_active .team-acco__trigger {
-	color: red;
+	color: #f9b43b;
 }
 .team-acco__item_active .team-acco__trigger::before {
 	transform: rotate(-180deg);
