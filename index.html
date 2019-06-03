@@ -48,7 +48,7 @@
             </div>
           </div><a class="down-arrow" href="#" data-scroll-to="1">
             <svg class="down-arrow__icon">
-              <use xlink:href="img/icons/sprite.svg#arrow"></use>
+              <use xlink:href="img/icons/sprite.svg#arrow-scroll"></use>
             </svg></a>
         </section>
         <section class="section best">
@@ -101,11 +101,23 @@
 
         <section class="section burgers">
           <div class="container burgers__container">
-            <a href="#" class="slider__button slider__button-prev">
-              <svg class="slider__button-icon">
-                <use xlink:href="img/icons/sprite.svg#arrow-scroll"></use>
-              </svg>
-            </a>
+              <div class="slider__controls">
+                  <a href="#" class="slider__button slider__button-prev">
+                      <svg class="slider__button-icon">
+                        <use xlink:href="img/icons/sprite.svg#arrow-scroll"></use>
+                      </svg>
+                    </a>
+
+
+                    <a href="#" class="slider__button slider__button-next">
+                        <svg class="slider__button-icon">
+                          <use xlink:href="img/icons/sprite.svg#arrow-scroll"></use>
+                        </svg>
+                      </a>
+
+
+              </div>
+           
             <div class="slider__wrapper">
               <ul class="slider__list">
                 <li class="slider__item">
@@ -226,13 +238,246 @@
                     </div>
                   </div>
                 </li>
+                <li class="slider__item">
+                  <div class="composition">
+                    <svg class="composition__pic">
+                      <use xlink:href="img/icons/sprite.svg#burger"></use>
+                    </svg>
+                    <div class="composition__text">Состав</div>
+                    <table class="composition__dropdown">
+                      <tbody class="composition__dropdown-body">
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#beef"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Говядина
+                          </td>
+                          <td class="composition__dropdown-cell">300 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#buns"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Булочки
+                          </td>
+                          <td class="composition__dropdown-cell">100 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#salad"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Зелень
+                          </td>
+                          <td class="composition__dropdown-cell">70 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#sauce"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Соус
+                          </td>
+                          <td class="composition__dropdown-cell">150 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#cucumber"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Овощи
+                          </td>
+                          <td class="composition__dropdown-cell">200 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#cheese"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Сыр
+                          </td>
+                          <td class="composition__dropdown-cell">80 г</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="burger-calory">
+                    <svg class="burger-calory__pic">
+                      <use xlink:href="img/icons/sprite.svg#kkal"></use>
+                    </svg>
+                    <div class="burger-calory__value">
+                      1200
+                    </div>
+                    <div class="burger-calory__text">
+                      ккал
+                    </div>
+                  </div>
+                  <div class="slider__left">
+                    <img src="img/content/burger-black1.png" alt="" class="slider__img">
+                  </div>
+                  <div class="slider__right">
+                    <h2 class="section__title section__title_white">
+                      Dark Beef Burger
+                    </h2>
+                    <div class="slider__text">
+                      <p>
+                        Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины,
+                        тремя кусочками нежнейшего сыра эмменталь,двумя помидорами,
+                        луком, салатом и соусом гриль теперь с добавлением
+                        экзотического соуса чураско.
+                      </p>
+                    </div>
+                    <div class="slider__options">
+                      <div class="slider__price">
+                        <div class="slider__price-sum">
+                          500
+                        </div>
+                        <div class="slider__price-currency">
+                          рублей
+                        </div>
+                      </div>
+                      <button type="button" class="button button-buy">
+                        Заказать
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <li class="slider__item">
+                  <div class="composition">
+                    <svg class="composition__pic">
+                      <use xlink:href="img/icons/sprite.svg#burger"></use>
+                    </svg>
+                    <div class="composition__text">Состав</div>
+                    <table class="composition__dropdown">
+                      <tbody class="composition__dropdown-body">
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#beef"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Говядина
+                          </td>
+                          <td class="composition__dropdown-cell">300 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#buns"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Булочки
+                          </td>
+                          <td class="composition__dropdown-cell">100 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#salad"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Зелень
+                          </td>
+                          <td class="composition__dropdown-cell">70 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#sauce"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Соус
+                          </td>
+                          <td class="composition__dropdown-cell">150 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#cucumber"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Овощи
+                          </td>
+                          <td class="composition__dropdown-cell">200 г</td>
+                        </tr>
+                        <tr class="composition__dropdown-row">
+                          <td class="composition__dropdown-img">
+                            <svg class="composition__dropdown-pic">
+                              <use xlink:href="icons/sprite.svg#cheese"></use>
+                            </svg>
+                          </td>
+                          <td class="composition__dropdown-cell">
+                            Сыр
+                          </td>
+                          <td class="composition__dropdown-cell">80 г</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="burger-calory">
+                    <svg class="burger-calory__pic">
+                      <use xlink:href="img/icons/sprite.svg#kkal"></use>
+                    </svg>
+                    <div class="burger-calory__value">
+                      1200
+                    </div>
+                    <div class="burger-calory__text">
+                      ккал
+                    </div>
+                  </div>
+                  <div class="slider__left">
+                    <img src="img/content/burger-black2.png" alt="" class="slider__img">
+                  </div>
+                  <div class="slider__right">
+                    <h2 class="section__title section__title_white">
+                      Dark Beef Burger
+                    </h2>
+                    <div class="slider__text">
+                      <p>
+                        Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины,
+                        тремя кусочками нежнейшего сыра эмменталь,двумя помидорами,
+                        луком, салатом и соусом гриль теперь с добавлением
+                        экзотического соуса чураско.
+                      </p>
+                    </div>
+                    <div class="slider__options">
+                      <div class="slider__price">
+                        <div class="slider__price-sum">
+                          500
+                        </div>
+                        <div class="slider__price-currency">
+                          рублей
+                        </div>
+                      </div>
+                      <button type="button" class="button button-buy">
+                        Заказать
+                      </button>
+                    </div>
+                  </div>
+                </li>
               </ul>
+              
             </div>
-            <a href="#" class="slider__button slider__button-next">
-              <svg class="slider__button-icon">
-                <use xlink:href="img/icons/sprite.svg#arrow-scroll"></use>
-              </svg>
-            </a>
+            
           </div>
         </section>
 
@@ -255,7 +500,7 @@
                   </div>
                 </div>
               </li>
-              <li class="team-acco__item team-acco__item_active"><a class="team-acco__trigger" href="#">ричард джеймс</a>
+              <li class="team-acco__item"><a class="team-acco__trigger" href="#">ричард джеймс</a>
                 <div class="team-acco__content">
                   <div class="team-acco__pic">
                     <div class="team-acco__img" style="background-image: url('img/content/team-photo.jpg')"></div>
@@ -294,7 +539,7 @@
         <section class="section menu">
           <div class="section__title section__title_white menu__title">Меню</div>
           <ul class="menu-acco">
-            <li class="menu-acco__item menu-acco__item_active"><a class="menu-acco__trigger" href="#" style="background-image: url('img/content/meats.jpg')">
+            <li class="menu-acco__item"><a class="menu-acco__trigger" href="#" style="background-image: url('img/content/meats.jpg')">
                 <div class="menu-acco__trigger-text">Для мясоедов</div></a>
               <div class="menu-acco__content">
                 <div class="menu-acco__text">
@@ -411,16 +656,16 @@
           <div class="container">
             <div class="section__title">Закажите доставку</div>
             <div class="order__form">
-              <form class="order__form-tag" id="order-form">
+              <form class="order__form-tag" id="main-form">
                 <div class="order__form-col">
                   <div class="order__form-row order__form-row_double">
                     <label class="order__form-block">
                       <div class="order__form-label">Имя</div>
-                      <input class="order__form-input" name="name" type="text" placeholder="">
+                      <input class="order__form-input" name="name" id="name" type="text" placeholder="">
                     </label>
                     <label class="order__form-block">
                       <div class="order__form-label">Телефон</div>
-                      <input class="order__form-input phone-mask" name="phone" type="text" placeholder="">
+                      <input class="order__form-input phone-mask" name="phone" id="phone" type="text" placeholder="">
                     </label>
                   </div>
                   <div class="order__form-row">
@@ -452,7 +697,7 @@
                   <div class="order__form-row">
                     <label class="order__form-block">
                       <div class="order__form-label">Комментарий</div>
-                      <textarea class="order__form-input order__form-input_textarea" name="comment"></textarea>
+                      <textarea class="order__form-input order__form-input_textarea" name="comment" id="comment"></textarea>
                     </label>
                   </div>
                   <div class="order__form-buttons">
@@ -560,9 +805,13 @@
         </div> 
       </a>
       <script src="js/app.js"></script>
+      
  
     
-   
+      <div class="modal-review" id="modal-review">
+          <div class="modal-review__inner"></div>
+          <div id="overlay" class="modal-review__overlay"></div>
+        </div>
  
   </body>
 </html>

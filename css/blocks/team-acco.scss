@@ -126,12 +126,12 @@
 	font-size: rem(14px);
 }
 
-.team-acco__item_active .team-acco__trigger {
+.is-active .team-acco__trigger {
 	color: #f9b43b;
 }
-.team-acco__item_active .team-acco__trigger::before {
+.is-active .team-acco__trigger::before {
 	transform: rotate(-180deg);
 }
-.team-acco__item_active .team-acco__content{
+.is-active .team-acco__content{
 	display: flex;
 }
