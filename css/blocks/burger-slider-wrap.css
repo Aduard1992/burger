@@ -1,0 +1,5 @@
+.burger-slider-wrap {
+  position: relative;
+  padding: rem(20px) 0; }
+  .burger-slider-wrap .owl-carousel .owl-item img {
+    width: auto; }

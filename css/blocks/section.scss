@@ -15,8 +15,10 @@
 .section__title {
 	color: $yellow;
 	font-size: rem(72px);
+	line-height: 1;
 	@include gagalin;
-	margin-bottom: rem(12px);
+	margin-bottom: rem(42px);
+	
 
 	&.section__title_black {
 		color: $black;
@@ -27,5 +29,18 @@
 	}
 	@include phones-small{
 		font-size: rem(50px);
+	}
+}
+
+.slider__text {
+	font-size: 0.875rem;
+	font-family: 'ubuntu', Helvetica, sans-serif;
+	font-weight: 300;
+	color: #fff;
+	line-height: 1.71;
+	margin-bottom: 36px;
+	@include tablets {
+		margin-bottom: 2rem;
+    
 	}
 }
