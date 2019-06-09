@@ -29,11 +29,11 @@
 }
 
 .review__title{
-  @include gagalin();
+  @include gagalin;
   font-size: 14px;
 }
 .review__text{
   font-size: 14px;
-  @include ubuntu($style:light);
+  @include ubuntu(light);
   margin-bottom: 15px;
 }

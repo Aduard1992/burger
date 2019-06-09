@@ -115,6 +115,7 @@ const slide = (function () {
 	const right = document.querySelector('.slider__button-next');
 	const slider = document.querySelector('.slider__list');
 	const computed = getComputedStyle(slider);
+	let scroll=true;
 
 	let sliderWidth = parseInt(computed.width);
 	
@@ -129,21 +130,27 @@ const slide = (function () {
 	let moveSlide = function (direction) {
 		direction.addEventListener('click', function (e) {
 			e.preventDefault();
+			if (scroll) {
+				scroll = false;
 			let currentRight = parseInt(computed.right);
 
 			if (currentRight < (sliderItemsCounter - 1) * sliderWidth && direction == right) {
 				slider.style.right = currentRight + sliderWidth + 'px';
-			}else if(currentRight > (sliderItemsCounter - 1) * sliderWidth && direction == right){
-				slider.style.right =currentRight - sliderItemsCounter * sliderWidth + 'px';
+			}else if (currentRight >= (sliderItemsCounter - 1) * sliderWidth && direction == right){
+				slider.style.right = currentRight - (sliderItemsCounter - 1) * sliderWidth + 'px';
 
 			}
 			if (currentRight > 0 && direction == left) {
 				slider.style.right = currentRight - sliderWidth + 'px';
-			}else if(currentRight < 0 && direction == left){
-				slider.style.right =currentRight + (sliderItemsCounter) * sliderWidth + 'px';
+			}else if (currentRight <= 0 && direction == left) {
+				slider.style.right = currentRight + (sliderItemsCounter -1) * sliderWidth + 'px';
 			}
-		});
-	}
+			setTimeout(function(){
+				scroll=true;
+			}, 500);
+		}
+	});
+}
 		
 	let addListeners = function () {
 		moveSlide(right);
@@ -273,3 +280,364 @@ let reviewOpen = function (content) {
 
 content = document.querySelector('#overlay').innerHTML;
 reviewOpen(content);
+
+
+
+
+
+
+/* OnePageScroll*/
+
+let checkMobile = () => {
+	let isMobile = false;
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Opera Mobile|Kindle|Windows Phone|PSP|AvantGo|Atomic Web Browser|Blazer|Chrome Mobile|Dolphin|Dolfin|Doris|GO Browser|Jasmine|MicroB|Mobile Firefox|Mobile Safari|Mobile Silk|Motorola Internet Browser|NetFront|NineSky|Nokia Web Browser|Obigo|Openwave Mobile Browser|Palm Pre web browser|Polaris|PS Vita browser|Puffin|QQbrowser|SEMC Browser|Skyfire|Tear|TeaShark|UC Browser|uZard Web|wOSBrowser|Yandex.Browser mobile/i.test(navigator.userAgent)) isMobile = true;
+	return isMobile;
+};
+
+
+let OnePageScroll = options => {
+	let currentSection = 0;
+	let content = document.querySelector('.maincontent');
+	let countSections = document.querySelectorAll('.section').length;
+	let listLinks = document.querySelectorAll('[' + options.attribute + ']');
+	let inscroll = false;
+	
+	let swipeDetected = element => {
+		let startX,
+			startY,
+			distX,
+			distY,
+			deviation = 200, //deviation from main direction
+			threshold = 150, //min range for swipe
+			allowedTime = 1000, //max time for range
+			elapsedTime, //runtime
+			startTime;
+
+		element.addEventListener('touchstart', e => {
+			let touchobj = e.changedTouches[0];
+			startX = touchobj.pageX;
+			startY = touchobj.pageY;
+			startTime = new Date().getTime(); //time touch with sensor
+		});
+
+	//disable touchmove
+		element.addEventListener('touchmove', e => e.preventDefault());
+
+		element.addEventListener('touchend', e => {
+			let touchobj = e.changedTouches[0];
+			distX = touchobj.pageX - startX; //get horizontal move
+			distY = touchobj.pageY - startY; //get vertical move
+			elapsedTime = new Date().getTime() - startTime;
+			if (elapsedTime <= allowedTime) {
+				if (Math.abs(distY) >= threshold && Math.abs(distX) <= deviation) { //vertical swipe
+					swipedir = (distY < 0) ? slideToSection(currentSection + 1) : slideToSection(currentSection - 1)
+				}
+			}
+		});
+	};
+	let slideToSection = (indexSection) => {
+		if (!inscroll) {
+			if (indexSection >= 0 && indexSection < countSections) {
+				
+				currentSection = indexSection;
+
+				inscroll = true;
+
+				let position = indexSection * -100 + '%';
+
+				content.style.transform = `translateY(${position})`;
+				content.style.webkitTransform = `translateY(${position})`;
+
+				
+
+				setTimeout(() => {
+					inscroll = false;
+					let sideNavElements = document.querySelectorAll('.section-nav__item');
+				for (let i = 0; i < sideNavElements.length; i++) {
+					if (i !== indexSection) {
+						sideNavElements[i].classList.remove('section-nav__item--active');
+					} else {
+						sideNavElements[i].classList.add('section-nav__item--active');
+					}
+				}
+				}, 1000);
+			}
+		}
+	};
+
+	//handlers for keyboard
+	document.addEventListener('keydown', e => {
+		switch (e.keyCode) {
+			case 40: 
+				slideToSection(currentSection + 1);
+				break;
+			case 38: 
+				slideToSection(currentSection - 1);
+				break;
+		}
+	});
+
+	//handlers for links
+	listLinks.forEach(item => {
+		item.addEventListener('click', e => {
+			e.preventDefault();
+			let index = parseInt((e.target).getAttribute(options.attribute));
+			//fix for button-down
+			if (!(index >= 0)) {
+				index = parseInt((e.currentTarget).getAttribute(options.attribute));
+			}
+			slideToSection(index);
+		});
+	});
+
+	//handlers for wheel
+	document.addEventListener('wheel', e => {
+		let deltaY = e.deltaY;
+		let index = deltaY > 0 ? currentSection + 1 : currentSection - 1;
+
+		slideToSection(index);
+	},'touchmove', e => e.preventDefault());
+	
+	
+
+ //handlers for swipe
+	if (checkMobile) {
+		swipeDetected(content);
+	}
+};
+
+OnePageScroll({
+	content: 'content',
+	section: 'section',
+	sideNavigation: 'section-nav__item',
+	attribute: 'data-scroll-to'
+});
+
+
+
+
+
+
+
+
+
+ymaps.ready(init);
+
+var placemarks = [
+    {
+        latitude: 59.97,
+        longitude: 30.31,
+        hintContent: '<div class="map__hint">ул. Литераторов, д. 19</div>',
+        balloonContent: [
+            '<div class="map__balloon">',
+            '<img class="map__burger-img" src="img/map/burger.png" alt="Бургер"/>',
+            'Самые вкусные бургеры у нас! Заходите по адресу: ул. Литераторов, д. 19',
+            '</div>'
+        ]
+    },
+    {
+        latitude: 59.94,
+        longitude: 30.25,
+        hintContent: '<div class="map__hint">Малый проспект В О, д 64</div>',
+        balloonContent: [
+            '<div class="map__balloon">',
+            '<img class="map__burger-img" src="img/map/burger.png" alt="Бургер"/>',
+            'Самые вкусные бургеры у нас! Заходите по адресу: Малый проспект В О, д 64',
+            '</div>'
+        ]
+    },
+    {
+        latitude: 59.93,
+        longitude: 30.34,
+        hintContent: '<div class="map__hint">наб. реки Фонтанки, д. 56</div>',
+        balloonContent: [
+            '<div class="map__balloon">',
+            '<img class="map__burger-img" src="img/map/burger.png" alt="Бургер"/>',
+            'Самые вкусные бургеры у нас! Заходите по адресу: наб. реки Фонтанки, д. 56',
+            '</div>'
+        ]
+    }
+],
+    geoObjects= [];
+
+function init() {
+    var map = new ymaps.Map('map', {
+        center: [59.94, 30.32],
+        zoom: 12,
+        controls: ['zoomControl'],
+        behaviors: ['drag']
+    });
+
+    for (var i = 0; i < placemarks.length; i++) {
+            geoObjects[i] = new ymaps.Placemark([placemarks[i].latitude, placemarks[i].longitude],
+            {
+                hintContent: placemarks[i].hintContent,
+                balloonContent: placemarks[i].balloonContent.join('')
+            },
+            {
+                iconLayout: 'default#image',
+                iconImageHref: 'img/map/sprite.png',
+                iconImageSize: [46, 57],
+                iconImageOffset: [-23, -57],
+                iconImageClipRect: [[415, 0], [461, 57]]
+            });
+    }
+
+    var clusterer = new ymaps.Clusterer({
+        clusterIcons: [
+            {
+                href: 'img/map/burger.png',
+                size: [100, 100],
+                offset: [-50, -50]
+            }
+        ],
+        clusterIconContentLayout: null
+    });
+
+    map.geoObjects.add(clusterer);
+    clusterer.add(geoObjects);
+}
+
+
+
+
+let video;
+let durationControl; 
+let soundControl;
+let intervalId;
+
+// документ полностью загружен
+$().ready(function(){
+
+    video = document.getElementById("player"); 
+
+    // вешаем обработчик события onclick на тег video
+    video.addEventListener('click', playStop);
+
+    // обработчики событий для кнопок play
+    let playButtons = document.querySelectorAll(".play");
+    for (let i = 0; i < playButtons.length;i++){
+        playButtons[i].addEventListener('click',playStop);
+    }
+
+    // обработчик событий для кнопки динамик
+    let micControl = document.getElementById("mic");
+    micControl.addEventListener('click',soundOf)
+    
+    // обработчики событий для ползунка продолжительности видео
+    durationControl = document.getElementById("durationLevel");  
+    durationControl.addEventListener('mousedown', stopInterval);   
+    // durationControl.addEventListener('click',setVideoDuration);
+    durationControl.addEventListener('mouseup', setVideoDuration); 
+
+    durationControl.min = 0;
+    durationControl.value = 0;    
+
+    // обработчики событий для ползунка громокости
+    soundControl = document.getElementById("micLevel");    
+    // soundControl.addEventListener('click', changeSoundVolume);
+    soundControl.addEventListener('mouseup', changeSoundVolume); 
+
+    // задаем максимальные и минимальные значения громокости
+    soundControl.min = 0;
+    soundControl.max = 10;
+    // присваиваем ползунку максимальное значение
+    soundControl.value = soundControl.max;
+
+    //обрабатываем окончание видео
+    video.addEventListener('ended', function () {
+        $(".video__player-img").toggleClass("video__player-img--active");
+        video.currentTime = 0;
+    }, false);
+});
+
+/*
+ Воспроизведение видео
+*/
+function playStop(){
+    // показывает или скрывает белую кнопку play
+    $(".video__player-img").toggleClass("video__player-img--active");  
+    // присваиваем ползунку продолжительности максимальное значение равное продолжительности нашего видео (в секундах)
+    durationControl.max = video.duration;
+
+    // проверим стоит ли видео на паузе, если да то продолжим воспроизведение. Если, наоборот, проигрыавыется, то остановим.
+    if (video.paused){
+        // video.webkitRequestFullScreen(); //возможность открыть в полноэкранном режиме
+        // запускаем видео
+        video.play();
+        intervalId = setInterval(updateDuration,1000/66)
+        
+    }else{
+        // video.webkitExitFullscreen(); //выйти из полноэкранного режима
+        // останавливаем видео
+        video.pause();  
+        clearInterval(intervalId);
+        
+    }
+}
+
+function stopInterval(){
+    video.pause();
+    clearInterval(intervalId);
+}
+
+/*
+    Реализует возможность перемотки нашего видео
+*/
+function setVideoDuration(){
+    if (video.paused){
+        video.play();
+    }else{
+        video.pause();  
+    }
+    video.currentTime = durationControl.value;
+    intervalId = setInterval(updateDuration,1000/66);
+}
+
+
+/*
+  Функция для обновления позиции ползунка продолжительности видео.   
+*/
+function updateDuration(){    
+    durationControl.value = video.currentTime;
+    // console.log(video.currentTime)
+}
+
+
+/*
+    Управление звуком
+*/
+function soundOf(){    
+    /*
+        Делаем проверку уровня громкости. 
+        Если у нас нашего видео есть звук, то мы его выключаем. 
+        Предварительно запомнив текущую позицию громкости в переменную soundLevel
+    */
+    if (video.volume === 0){
+        video.volume = soundLevel;
+        soundControl.value = soundLevel*10;
+    }else{
+        /*
+            Если у нашего видео нет звука, то выставляем уровень громкости на прежний уровень.
+            Хранится в перменной soundLevel
+        */
+        soundLevel = video.volume;
+        video.volume = 0;
+        soundControl.value = 0;
+    }    
+}
+
+/*
+    Управление звуком видео
+*/
+function changeSoundVolume(){
+    /*
+        Св-во volume может принимать значения от 0 до 1
+        Делим на 10 для того что бы, была возможность более точной регулировки видео. 
+         video.volume 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9  1 
+   soundControl.value 0   1   2   3   4   5   6   7   8   9  10
+        */
+   
+    video.volume = soundControl.value/10; 
+    console.log(video.volume) 
+}

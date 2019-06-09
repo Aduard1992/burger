@@ -46,6 +46,9 @@
 	
 	.slider__list {
 		display: flex;
+		right: 0;
+		position: relative;
+		transition: right 0.4s;
 	}
 
 	
@@ -75,6 +78,7 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
+		
 		@include tablets{
 			top: 0;
 		}
@@ -91,13 +95,67 @@
 		}
 		
 	}
-	.composition__dropdown {
-		display: none;
-		background-color: #ffffff;
-		position: absolute;
-	}
+		.composition:hover {
+		background: #e35028; }
+
+		.composition:hover .composition__dropdown__hover {
+			display: table; }
 
 
+
+
+
+
+		.composition__dropdown__hover {
+			width: 270px;
+			height: 332px;
+			opacity: 0.9;
+			border-radius: 0.3125rem;
+			background-color: #ffffff;
+			position: absolute; 
+			left: 100%;
+			top: 0;
+			text-align: center;
+			display: none;
+			
+		
+		}
+
+
+		
+
+
+
+
+	
+	  
+	  
+	  
+	  .composition__dropdown-pic {
+		width: 2.75rem;
+		height: 2.4375rem; }
+	  
+	  .composition__dropdown-img {
+		width: 5rem;
+		text-align: center; }
+	  
+	  .composition__dropdown-row {
+		vertical-align: middle; }
+	  
+	  .composition__dropdown-cell {
+		width: 2.25rem;
+		font-size: 0.875rem;
+		text-align: left;
+		font-family: 'ubuntu', Helvetica, sans-serif;
+		font-weight: 500; }
+
+		.composition__dropdown-cell:nth-child(3) {
+		  width: 70px;
+		  text-align: right;
+		  font-weight: 300;
+		  padding-right: 20px; }
+	  
+	  
 
 	.burger-calory {
 		position: absolute;
