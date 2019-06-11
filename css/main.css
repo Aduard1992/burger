@@ -1217,7 +1217,7 @@ footer {
 
 .down-arrow {
   position: absolute;
-  bottom: 1.25rem;
+  bottom: 4.31rem;
   left: 50%;
   width: 3.75rem;
   -webkit-transform: translateX(-50%);
@@ -1933,15 +1933,15 @@ footer {
   color: #fff;
   font-size: 0.875rem; }
 
-.team-acco__item_active .team-acco__trigger {
+.is-active .team-acco__trigger {
   color: #f9b43b; }
 
-.team-acco__item_active .team-acco__trigger::before {
+.is-active .team-acco__trigger::before {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg); }
 
-.team-acco__item_active .team-acco__content {
+.is-active .team-acco__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -1981,6 +1981,7 @@ footer {
   left: 50%;
   background: rgba(47, 50, 52, 0.93);
   padding: 5% 2% 0 7%; }
+  
   @media screen and (max-width: 768px) {
     .team__section {
       position: relative;
@@ -1997,3 +1998,86 @@ footer {
   line-height: 1.8; }
 
 /*# sourceMappingURL=main.css.map */
+.modal-review {
+  display: none;
+  background: rgba(0, 0, 0, 0.603);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.modal-review.active {
+  display: block; }
+
+.modal-review__overlay {
+  display: none; }
+
+.modal-review__inner {
+  max-width: 28.125rem;
+  padding: 1.5625rem 1.25rem;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #fff; }
+  @media screen and (max-width: 480px) {
+    .modal-review__inner {
+      width: 95%; } }
+
+.modal-review__title {
+  font-family: 'gagalin-regular', Helvetica, sans-serif;
+  font-size: 0.875rem;
+  line-height: 2;
+  margin-bottom: 1.875rem; }
+  @media screen and (max-width: 768px) {
+    .modal-review__title {
+      margin-bottom: 1.25rem; } }
+  @media screen and (max-width: 480px) {
+    .modal-review__title {
+      font-size: 1.5rem; } }
+
+.modal-review__text {
+  font-family: 'ubuntu', Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem;
+  margin-bottom: 1.0625rem; }
+
+.modal-review__close::after {
+  position: absolute;
+  content: ' ';
+  right: 1.25rem;
+  top: 1.25rem;
+  height: 1.5625rem;
+  width: 0.25rem;
+  background-color: #eb8262;
+  border-radius: 0.625rem;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  -o-transition: transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s; }
+
+.modal-review__close:before {
+  position: absolute;
+  content: ' ';
+  right: 1.25rem;
+  top: 1.25rem;
+  height: 1.5625rem;
+  width: 0.25rem;
+  background-color: #eb8262;
+  border-radius: 0.625rem;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  -o-transition: transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s; }
