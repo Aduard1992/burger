@@ -229,7 +229,7 @@ var ajaxForm = function (form) {
 	formData.append("name", form.elements.name.value);
 	formData.append("phone", form.elements.phone.value);
 	formData.append("comment", form.elements.comment.value);
-	formData.append("to", "enemikhin@rambler.ru");
+	formData.append("to", "enemikhin@yrambler.ru");
 
 	let url = "https://webdev-api.loftschool.com/sendmail/";
 

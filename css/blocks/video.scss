@@ -1,9 +1,16 @@
 .video {
-    background: url("../img/player/bg_video.png") center center /cover no-repeat;
+    background: url("../img/player/bg.jpg") center center /cover no-repeat;
     height: 100vh;
     display: flex;
     justify-content: center;
-}
+    @include tablets{
+        background: url("../img/player/tab.jpg") center center/cover no-repeat; 
+    }
+    @include phones{
+        background: url("../img/player/mob.jpg") center center/cover no-repeat; 
+    }
+    }
+
 
 .title_black_center{
     text-align: center;

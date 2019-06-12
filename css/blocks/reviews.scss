@@ -107,6 +107,7 @@
   @include ubuntu(medium);
   font-size: rem(12px);
   transition: .3s;
+  border: none;
   &:hover {
     background-color: rgb(31, 33, 34);
   }

@@ -110,6 +110,8 @@
 			border-radius: 50%;
 			background: white;
 			margin: 1.1rem auto; }
+			.popup-menu__item:last-child:after {
+				display: none; }
 
 
 			.popup-menu__link {
